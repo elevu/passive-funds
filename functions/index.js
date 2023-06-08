@@ -1,11 +1,9 @@
 const functions = require("firebase-functions");
 const fetch = require("node-fetch");
 const Firestore = require("@google-cloud/firestore");
-const PROJECTID = "fund-trends";
+const PROJECTID = "passive-funds";
 const COLLECTION_NAME = "funds";
 const documentName = "indexes";
-const mailchimpFactory = require("@mailchimp/mailchimp_transactional/src/index.js");
-const mailchimp = mailchimpFactory("ewrrwer");
 
 const firestore = new Firestore({
   projectId: PROJECTID,
