@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpEvent, HttpResponse } from '@angular/common/http';
-import { Fund } from './fund';
+import { HttpClient } from '@angular/common/http';
+import {  FundsResponse } from './fund';
 import { Observable } from 'rxjs';
 
 
@@ -10,9 +10,9 @@ import { Observable } from 'rxjs';
 export class FundService {
   constructor(private http: HttpClient) {}
 
-  public getFunds(): Observable<Fund[]> {
+  public getFunds(): Observable<FundsResponse> {
     const url = `${'https://us-central1-fund-trends.cloudfunctions.net/getDBFunds'}`;
 
-    return this.http.get<Fund[]>(url);
+    return this.http.get<FundsResponse>(url);
   }
 }
