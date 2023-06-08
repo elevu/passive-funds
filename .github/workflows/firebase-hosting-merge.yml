@@ -8,10 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.3.0
+      - name: Lint
+        run: npm run lint
       - name: Install
         run: npm install
       - name: Build Prod
-        run: npm build
+        run: npm run build
         env:
           BACKEND_URL: ${{ secrets.BACKEND_URL }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
