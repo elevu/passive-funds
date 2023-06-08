@@ -79,11 +79,6 @@ exports.updateFunds = functions.https.onRequest((request, response) => {
       );
 });
 
-
-exports.updateEmail = functions.https.onRequest((request, response) => {
-sendEmail().then(res=>response.send(res))
-});
-
 const fetchFunds = (index) => {
   return fetch("https://www.avanza.se/_api/fund-guide/list?shouldCheckFondExcludedFromPromotion=true", {
     headers: {
@@ -94,9 +89,3 @@ const fetchFunds = (index) => {
     body: JSON.stringify({"startIndex": index, "indexFund": true, "showActivelyManagedFunds": false, "sustainabilityProfile": false, "lowCo2": false, "svanenMark": false, "noFossilFuelInvolvement": false, "commonRegionFilter": [], "otherRegionFilter": [], "alignmentFilter": [], "industryFilter": [], "fundTypeFilter": ["Aktiefond"], "interestTypeFilter": [], "sortField": "totalFee", "sortDirection": "ASCENDING", "name": "", "recommendedHoldingPeriodFilter": [], "companyFilter": [], "productInvolvementsFilter": [], "ratingFilter": [], "sustainabilityRatingFilter": [], "environmentalRatingFilter": [], "socialRatingFilter": [], "governanceRatingFilter": []}),
   });
 };
-
- async function sendEmail() {
-  const response = await mailchimp.users.ping();
-  console.log(response);
-  return response
-}
