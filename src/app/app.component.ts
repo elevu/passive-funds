@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FundService } from './fund.service';
-import { Fund } from "./fund";
+import {Fund, FundsResponse} from "./fund";
 
 
 @Component({
@@ -17,7 +17,7 @@ export class AppComponent {
   title = 'passive-funds'
 
     ngOnInit(): void {
-    this.fundService.getFunds().subscribe((response: Fund[]) => {
+    this.fundService.getFunds().subscribe((response: FundsResponse) => {
       console.log(response);
     });
   }
