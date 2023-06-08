@@ -9,16 +9,16 @@ import {Fund, FundsResponse} from "./fund";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+    title = 'Passive funds'
     funds: Fund[]
 
     constructor(public fundService: FundService) {
     this.funds = [] as Fund[];
   }
-  title = 'passive-funds'
-
     ngOnInit(): void {
     this.fundService.getFunds().subscribe((response: FundsResponse) => {
       console.log(response);
+      this.funds = response.funds
     });
   }
 }
