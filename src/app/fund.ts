@@ -1,9 +1,10 @@
 export interface Fund {
-  avatar: string;
-  email: string;
-  first_name: string;
-  id: Number;
-  last_name: string;
+  category: string;
+  companyName: string;
+  developmentOneMonth: number;
+  developmentOneYear: number;
+  developmentThreeMonths: number;
+  name: string;
 }
 
 export interface FundsResponse {
